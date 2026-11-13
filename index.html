@@ -3,86 +3,185 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>나의 링크 모음</title>
+  <title>현필의 실험실 링크</title>
   <style>
-    
-{
-    box-sizing: border-box;}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-      margin: 0;
-      padding: 40px 20px;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #e0e7ff, #fce7f3);
-      color: #333;
-      text-align: center;
+      min-height: 100vh;
+      padding: 50px 16px;
+      font-family: 'Malgun Gothic', Arial, sans-serif;
+      background: #f8fafc;
+      background-image:
+        linear-gradient(#e2e8f0 1px, transparent 1px),
+        linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
+      background-size: 24px 24px;   /* 실험 노트 모눈종이 느낌 */
+      color: #1e293b;
+      display: flex;
+      justify-content: center;
     }
 
     .container {
-      max-width: 430px;
-      margin: 50px auto;
-      padding: 35px 25px;
-      background: white;
-      border-radius: 25px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
     }
 
-    .profile {
-      font-size: 55px;
-      margin-bottom: 10px;
+    .title-box {
+      background: white;
+      border: 2px solid #1e293b;
+      border-radius: 14px;
+      padding: 24px 20px;
+      margin-bottom: 28px;
+    }
+
+    .title-box .emoji {
+      font-size: 44px;
     }
 
     h1 {
-      font-size: 26px;
-      margin-bottom: 10px;
+      font-size: 22px;
+      margin: 8px 0 6px;
     }
 
     .intro {
-      color: #888;
-      margin-bottom: 30px;
+      color: #64748b;
+      font-size: 14px;
     }
 
-    .link {
-      display: block;
-      padding: 16px;
-      margin: 13px 0;
-      border-radius: 12px;
-      background: #f3f4f6;
-      color: #444;
-      text-decoration: none;
+    .section-title {
+      text-align: left;
+      font-size: 13px;
       font-weight: bold;
+      color: #475569;
+      margin: 0 0 10px 4px;
+    }
+
+    .table {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    /* 원소 칸 모양 */
+    .element {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border: 2px solid #1e293b;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #1e293b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       transition: 0.2s;
     }
 
-    .link:hover {
-      background: #dbeafe;
-      transform: translateY(-3px);
+    .element:hover {
+      transform: scale(1.06);
+      box-shadow: 4px 4px 0 #1e293b;
     }
 
+    .element .num {
+      position: absolute;
+      top: 6px;
+      left: 8px;
+      font-size: 11px;
+    }
+
+    .element .symbol {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .element .name {
+      font-size: 11px;
+      margin-top: 4px;
+    }
+
+    /* 그룹별 색상 */
+    .research { background: #dbeafe; }
+    .drug     { background: #fce7f3; }
+    .me       { background: #dcfce7; }
+
     footer {
-      margin-top: 30px;
       font-size: 12px;
-      color: #aaa;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 360px) {
+      .table { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <div class="profile">🌷</div>
+    <div class="title-box">
+      <div class="emoji">⚗️</div>
+      <h1>현필의 실험실 링크</h1>
+      <p class="intro">화학공학 공부할 때 자주 쓰는 사이트 모음</p>
+    </div>
 
-    <h1>나의 링크 모음</h1>
-    <p class="intro">자주 사용하는 사이트를 한곳에 모았어요!</p>
+    <p class="section-title">📚 논문 · 자료 검색</p>
+    <div class="table">
+      <a class="element research" href="https://scholar.google.com/" target="_blank">
+        <span class="num">1</span>
+        <span class="symbol">Gs</span>
+        <span class="name">Google Scholar</span>
+      </a>
+      <a class="element research" href="https://www.riss.kr/" target="_blank">
+        <span class="num">2</span>
+        <span class="symbol">Ri</span>
+        <span class="name">RISS</span>
+      </a>
+      <a class="element research" href="https://www.sciencedirect.com/" target="_blank">
+        <span class="num">3</span>
+        <span class="symbol">Sd</span>
+        <span class="name">ScienceDirect</span>
+      </a>
+    </div>
 
-    <a class="link" href="https://www.naver.com/" target="_blank">🔍 네이버</a>
+    <p class="section-title">💊 화합물 · 약물 정보</p>
+    <div class="table">
+      <a class="element drug" href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank">
+        <span class="num">4</span>
+        <span class="symbol">Pc</span>
+        <span class="name">PubChem</span>
+      </a>
+      <a class="element drug" href="https://go.drugbank.com/" target="_blank">
+        <span class="num">5</span>
+        <span class="symbol">Db</span>
+        <span class="name">DrugBank</span>
+      </a>
+      <a class="element drug" href="https://www.chemspider.com/" target="_blank">
+        <span class="num">6</span>
+        <span class="symbol">Cs</span>
+        <span class="name">ChemSpider</span>
+      </a>
+    </div>
 
-    <a class="link" href="https://www.youtube.com/" target="_blank">▶ 유튜브</a>
+    <p class="section-title">🙋 나에 대해</p>
+    <div class="table">
+      <a class="element me" href="https://github.com/ckgusvlf" target="_blank">
+        <span class="num">7</span>
+        <span class="symbol">Gh</span>
+        <span class="name">GitHub</span>
+      </a>
+      <a class="element me" href="https://www.chungwoon.ac.kr/" target="_blank">
+        <span class="num">8</span>
+        <span class="symbol">Cw</span>
+        <span class="name">청운대학교</span>
+      </a>
+    </div>
 
-    <a class="link" href="https://www.google.com/" target="_blank">🌐 구글</a>
-
-    <a class="link" href="https://github.com/" target="_blank">💻 GitHub</a>
-
-    <footer>My Link Page © 2026</footer>
+    <footer>My Lab Link © 2026</footer>
   </div>
 
 </body>
